@@ -1,5 +1,4 @@
 {
-    // Required
     "manifest_version": 1,
     "name": "Shortner",
     "description": "Quickly get a shortened URL for a site!",
