@@ -3,13 +3,14 @@
     "name": "Shortner",
     "description": "Quickly get a shortened URL for a site!",
     "version": "1.0",
-
+    
     "default_locale": "en",
     "browser_action": {
         "default_title":"UShort",
         "default_icon": "icon.png",
         "default_popup":"popup.html"  
     },
+    
 
     "permissions": [
     "tabs"
