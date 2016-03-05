@@ -1,2 +1,2 @@
 # short
-shrtr
+shortener
