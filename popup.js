@@ -1,18 +1,18 @@
  var APIkey = "AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34";
  var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?key=" + APIkey;
 
-
  // Get url of current tab once extension icon is clicked and shorten it using shortenUrl function
  function getUrl() {
-     chrome.tabs.query({
+     chrome.tabs.query(
+    {
          'active': true,
          'lastFocusedWindow': true
-     }, function (tabs) {
+     }, 
+    function (tabs) {
          shortenUrl(tabs[0].url);
      });
 
  }
-
 
  //Call Google URL Shortener API to get shortened version of URL
  function shortenUrl(url) {
@@ -23,10 +23,12 @@
          }, "json");
  }
 
+getUrl();
+alert(" THIS WORKING?");
 
-var btn = document.getElementById('copy-link');
+var btn = document.getElementById("copy-link");
 var clipboard = new Clipboard(btn);
 
-$(document).ready(function() {
-    console.log("SWAAAG");
-});
+
+
+
