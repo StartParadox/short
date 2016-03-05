@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>UShort</title>
 
-    <script src="popup.js"></script>
-    <link href="css/main.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
     <script src="https://apis.google.com/js/client.js?onload=googleApiLoaded"></script>
+    
+    <script src="popup.js"></script>
+    <script src="clipboard.min.js"></script>
 
     <style>
         body {
@@ -23,19 +24,30 @@
             border-width: 5px;
             border-color: #62bcfa;
         }
+        
+        #copy-link {
+            margin: 10px;
+            font-size: 25px;
+            border-radius: 10px;
+            background-color: #62bcfa;
+        }
+        
+        #short-url {
+            font-size: 35px;
+            text-align: center;
+            color: #22264b;
+        }
     </style>
 
 </head>
 
 <body>
-    <button id="authorize-button">Create</button>
-    
     <div>
-            <button id="copy-link">Copy</button>
-            
+        <button id="copy-link" data-clipboard-target="#short-url">Copy</button>
+        <h1 id="short-url">Shortened URL</h1>
     </div>
-    
-    
+
+
 </body>
 
 
