@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>UShort</title>
 
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
     <script src="https://apis.google.com/js/client.js?onload=googleApiLoaded"></script>
     
@@ -23,11 +23,19 @@
             border-style: solid;
             border-width: 5px;
             border-color: #62bcfa;
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 15px;
+        }
+        
+        #title{
+        text-align: center;
+        
         }
         
         #copy-link {
             margin: 10px;
-            font-size: 25px;
+            font-size: 35px;
             border-radius: 10px;
             background-color: #62bcfa;
         }
@@ -43,8 +51,9 @@
 
 <body>
     <div>
-        <button id="copy-link" data-clipboard-target="#short-url">Copy</button>
-        <h1 id="short-url">Shortened URL</h1>
+        <button class= "fa fa-clipboard" id="copy-link" data-clipboard-target="#short-url"> COPY </button>
+        <h1 id="title">Shortened URL:</h1>
+        <h1 id="short-url">Shortened URL Here</h1>
     </div>
 
 
