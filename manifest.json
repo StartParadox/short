@@ -1,10 +1,9 @@
 {
-    "manifest_version": 1,
+    "manifest_version": 2,
     "name": "Shortner",
     "description": "Quickly get a shortened URL for a site!",
     "version": "1.0",
     
-    "default_locale": "en",
     "browser_action": {
         "default_title":"UShort",
         "default_icon": "icon.png",
