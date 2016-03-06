@@ -9,10 +9,12 @@ var clipboard = new Clipboard(btn);
      chrome.tabs.query(
     {
          'active': true,
-         'lastFocusedWindow': true
+         'currentWindow': true
      }, 
     function (tabs) {
-         shortenUrl(tabs[0].url);
+        var currUrl = tabs[0].url; 
+         shortenUrl(currUrl);
+        console.log(currUrl);
      });
 
  }
