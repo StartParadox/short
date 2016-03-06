@@ -40,9 +40,3 @@
  }
 
  document.addEventListener("DOMContentLoaded", getUrl);
-
- $document.ready(function () {
-     console.log("READY!!");
-     getUrl();
-     alert("IS THIS THING ON?");
- });
