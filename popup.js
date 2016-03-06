@@ -4,6 +4,14 @@
 var btn = document.getElementById("copy-link");
 var clipboard = new Clipboard(btn);
 
+ clipboard.on('success', function(e) {
+        console.log(e);
+    });
+
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+
  // Get url of current tab once extension icon is clicked and shorten it using shortenUrl function
 
 /* function getUrl() {
@@ -20,6 +28,7 @@ var clipboard = new Clipboard(btn);
      });
 
  }*/
+
 
 function getUrl(){
     var currUrl = window.location.href;
