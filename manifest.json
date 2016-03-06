@@ -12,8 +12,8 @@
     
 
     "permissions": [
-    "activeTab"    
-    "tabs"
+    "activeTab",    
+    "tabs",
     "<all_urls>"
     ]
 }
