@@ -5,7 +5,8 @@ var btn = document.getElementById("copy-link");
 var clipboard = new Clipboard(btn);
 
  // Get url of current tab once extension icon is clicked and shorten it using shortenUrl function
- function getUrl() {
+
+/* function getUrl() {
      chrome.tabs.query(
     {
          'active': true,
@@ -15,15 +16,22 @@ var clipboard = new Clipboard(btn);
         var currUrl = tabs[0].url; 
          shortenUrl(currUrl);
         console.log(currUrl);
+        alert(currUrl);
      });
 
- }
+ }*/
 
- //Call Google URL Shortener API to get shortened version of URL
+function getUrl(){
+    var currUrl = window.location.href;
+    shortenUrl(currUrl);
+    console.log(currUrl);
+}
+
+//Call Google URL Shortener API to get shortened version of URL
  function shortenUrl(url) {
      $.post(APIUrl, {longUrl: url },function (data) {
-            console.log("data: " + data);
-            document.getElementById("short-url").innerHTML = data;
+            console.log("data: " + data.id);
+            document.getElementById("short-url").innerHTML = data.id;
 
          }, "json");
  }
