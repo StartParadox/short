@@ -1,6 +1,9 @@
  var APIkey = "AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34";
  var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?key=" + APIkey;
 
+var btn = document.getElementById("copy-link");
+var clipboard = new Clipboard(btn);
+
  // Get url of current tab once extension icon is clicked and shorten it using shortenUrl function
  function getUrl() {
      chrome.tabs.query(
@@ -26,8 +29,6 @@
 getUrl();
 alert(" THIS WORKING?");
 
-var btn = document.getElementById("copy-link");
-var clipboard = new Clipboard(btn);
 
 
 
