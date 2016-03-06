@@ -30,14 +30,23 @@ function getUrl(){
 //Call Google URL Shortener API to get shortened version of URL
  function shortenUrl(url) {
      $.post(APIUrl, {longUrl: url },function (data) {
+         console.log(data);
+         alert(data);
+         alert(data.id);
             console.log("data: " + data.id);
             document.getElementById("short-url").innerHTML = data.id;
 
          }, "json");
  }
 
-getUrl();
-alert(" THIS WORKING?");
+document.addEventListener("DOMContentLoaded", getUrl);
+
+$document.ready(function(){
+    console.log("READY!!");
+    getUrl();
+    alert("IS THIS THING ON?");
+});
+
 
 
 
