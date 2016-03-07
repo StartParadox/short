@@ -76,11 +76,13 @@
     });
 
 
-    /*
+
     function getUrl() {
         var currUrl = window.location.href;
-        shortenUrl(currUrl);
         console.log(currUrl);
+        currUrl = "http://www.google.com";
+        shortenUrl(currUrl);
+
     }
 
     //Call Google URL Shortener API to get shortened version of URL
@@ -89,16 +91,17 @@
             longUrl: url
         }, function (data) {
             console.log(data);
-            console.log("data: " + data.id);
-            //document.getElementById("short-url").innerHTML = data.id;
+            console.log("data: " + data.message);
+            document.getElementById("short-url").value = "http://www.google.com";
 
         }, "json");
     }
-    */
+
 
     document.addEventListener("DOMContentLoaded", function () {
         alert("READY!");
         console.log("PROGRAM IS READY YO");
+        getUrl();
     });
 </script>
 
