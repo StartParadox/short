@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
     <script src="jquery-2.2.1.js"></script>
-    <script src="popup.js"></script>
     <script src="dist/clipboard.min.js"></script>
 
 
@@ -30,9 +29,10 @@
         }
 
         function makeRequest() {
+            var url = window.location.href;
             var request = gapi.client.urlshortener.url.insert({
                 'resource': {
-                    'longUrl': window.location.href;
+                    'longUrl': url
                 }
             });
             request.then(function (response) {
