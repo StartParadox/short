@@ -15,53 +15,6 @@
     <script src="popup.js"></script>
     <script src="dist/clipboard.min.js"></script>
 
-    <script>
-        var APIkey = "AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34";
-        var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?key=" + APIkey;
-
-        var clipboard = new Clipboard('btn');
-
-        clipboard.on('success', function (e) {
-            console.log(e);
-        });
-
-        clipboard.on('error', function (e) {
-            console.log(e);
-        });
-
-
-        /* $document.ready(function () {
-             console.log("READY!!");
-             getUrl();
-             alert("IS THIS THING ON?"); */
-
-
-
-        function getUrl() {
-            var currUrl = window.location.href;
-            shortenUrl(currUrl);
-            console.log(currUrl);
-        }
-
-        //Call Google URL Shortener API to get shortened version of URL
-        function shortenUrl(url) {
-            $.post(APIUrl, {
-                longUrl: url
-            }, function (data) {
-                console.log(data);
-                console.log("data: " + data.id);
-                //document.getElementById("short-url").innerHTML = data.id;
-
-            }, "json");
-        }
-
-        /* document.addEventListener("DOMContentLoaded", function () {
-             alert("READY!");
-             console.log("PROGRAM IS READY YO");
-         });*/
-    </script>
-
-
     <style>
         body {
             font-family: 'Raleway', sans-serif;
@@ -102,9 +55,51 @@
     <div>
         <h1 id="title">Shortened URL:</h1>
         <input id="short-url" type="text" value="Shortened URL">
-        <button class="fa fa-clipboard btn" id="copy-url" data-clipboard-action="copy" data-clipboard-target="#short-url"> COPY </button>
+        <button class="fa fa-clipboard btn" id="copy-url" data-clipboard-action="cut" data-clipboard-target="#short-url"> COPY </button>
 
     </div>
 </body>
+
+
+<script>
+    var APIkey = "AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34";
+    var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?key=" + APIkey;
+
+    var clipboard = new Clipboard('btn');
+
+    clipboard.on('success', function (e) {
+        console.log(e);
+    });
+
+    clipboard.on('error', function (e) {
+        console.log(e);
+    });
+
+
+    /*
+    function getUrl() {
+        var currUrl = window.location.href;
+        shortenUrl(currUrl);
+        console.log(currUrl);
+    }
+
+    //Call Google URL Shortener API to get shortened version of URL
+    function shortenUrl(url) {
+        $.post(APIUrl, {
+            longUrl: url
+        }, function (data) {
+            console.log(data);
+            console.log("data: " + data.id);
+            //document.getElementById("short-url").innerHTML = data.id;
+
+        }, "json");
+    }
+    */
+
+    document.addEventListener("DOMContentLoaded", function () {
+        alert("READY!");
+        console.log("PROGRAM IS READY YO");
+    });
+</script>
 
 </html>
