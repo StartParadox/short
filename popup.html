@@ -16,6 +16,10 @@
     <script src="dist/clipboard.min.js"></script>
 
     <script>
+        var APIkey = "AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34";
+        var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?key=" + APIkey;
+
+
         var btn = document.getElementById("copy-link");
         var clipboard = new Clipboard(btn);
 
@@ -33,8 +37,32 @@
             console.log("READY!!");
             getUrl();
             alert("IS THIS THING ON?");
+
+
+
+            function getUrl() {
+                var currUrl = window.location.href;
+                shortenUrl(currUrl);
+                console.log(currUrl);
+            }
+
+            //Call Google URL Shortener API to get shortened version of URL
+            function shortenUrl(url) {
+                $.post(APIUrl, {
+                    longUrl: url
+                }, function (data) {
+                    console.log(data);
+                    alert(data);
+                    alert(data.id);
+                    console.log("data: " + data.id);
+                    document.getElementById("short-url").innerHTML = data.id;
+
+                }, "json");
+            }
+
         });
-        
+
+        document.addEventListener("DOMContentLoaded", getUrl);
     </script>
 
 
