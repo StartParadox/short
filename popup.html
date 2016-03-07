@@ -46,6 +46,10 @@
             font-size: 2em;
             color: #22264b;
         }
+        
+        textarea {
+            background-color: #62bcfa;
+        }
     </style>
 
 
@@ -63,7 +67,7 @@
 
 <script>
     var APIkey = "AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34";
-    var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?key=" + APIkey;
+    var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?fields=id&key=" + APIkey;
 
     var clipboard = new Clipboard('btn');
 
@@ -80,6 +84,7 @@
     function getUrl() {
         var currUrl = window.location.href;
         console.log(currUrl);
+        //for testing purposes
         currUrl = "http://www.google.com";
         shortenUrl(currUrl);
 
@@ -87,14 +92,13 @@
 
     //Call Google URL Shortener API to get shortened version of URL
     function shortenUrl(url) {
-        $.post(APIUrl, {
-            longUrl: url
-        }, function (data) {
-            console.log(data);
-            console.log("data: " + data.message);
-            document.getElementById("short-url").value = "http://www.google.com";
+        $.post(APIUrl, JSON.stringify(longUrl: url),
+            function (data) {
+                console.log(data);
+                console.log("data: " + data.id);
+                document.getElementById("short-url").value = "http://www.google.com";
 
-        }, "json");
+            }, "json");
     }
 
 
