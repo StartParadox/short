@@ -9,11 +9,71 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-
-    <script src="https://apis.google.com/js/client.js?onload=googleApiLoaded"></script>
     <script src="jquery-2.2.1.js"></script>
     <script src="popup.js"></script>
     <script src="dist/clipboard.min.js"></script>
+
+
+
+    <script>
+        var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?fields=id&key=AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34";
+
+        function init() {
+            gapi.client.setApiKey('AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34');
+            gapi.client.load('urlshortener', 'v1').then(makeRequest);
+        }
+
+        function makeRequest() {
+            var request = gapi.client.urlshortener.url.insert({
+                'longUrl': window.location.href;
+            });
+            request.then(function (response) {
+                appendResults(response.result.longUrl);
+            });
+        }
+
+        var clipboard = new Clipboard('btn');
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+        });
+
+
+
+        function getUrl() {
+            //var currUrl = window.location.href;
+            var currUrl = "http://www.google.com";
+            console.log(currUrl);
+            //for testing purposes
+            shortenUrl(currUrl);
+
+        }
+
+        //Call Google URL Shortener API to get shortened version of URL
+        function shortenUrl(url) {
+            $.post(APIUrl, JSON.stringify(longUrl: url),
+                function (data) {
+                    console.log(data);
+                    console.log("data: " + data.id);
+                    document.getElementById("short-url").value = "http://www.google.com";
+
+                }, "json");
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            alert("PROGRAM IS READY YO");
+            console.log("PROGRAM IS READY YO");
+            getUrl();
+        });
+    </script>
+
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+
 
     <style>
         body {
@@ -63,50 +123,5 @@
 
     </div>
 </body>
-
-
-<script>
-    var APIkey = "AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34";
-    var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?fields=id&key=" + APIkey;
-
-    var clipboard = new Clipboard('btn');
-
-    clipboard.on('success', function (e) {
-        console.log(e);
-    });
-
-    clipboard.on('error', function (e) {
-        console.log(e);
-    });
-
-
-
-    function getUrl() {
-        var currUrl = window.location.href;
-        console.log(currUrl);
-        //for testing purposes
-        currUrl = "http://www.google.com";
-        shortenUrl(currUrl);
-
-    }
-
-    //Call Google URL Shortener API to get shortened version of URL
-    function shortenUrl(url) {
-        $.post(APIUrl, JSON.stringify(longUrl: url),
-            function (data) {
-                console.log(data);
-                console.log("data: " + data.id);
-                document.getElementById("short-url").value = "http://www.google.com";
-
-            }, "json");
-    }
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-        alert("PROGRAM IS READY YO");
-        console.log("PROGRAM IS READY YO");
-        getUrl();
-    });
-</script>
 
 </html>
