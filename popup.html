@@ -23,12 +23,20 @@
             gapi.client.load('urlshortener', 'v1').then(makeRequest);
         }
 
+        function appendResults(text) {
+            var results = document.getElementById('short-url');
+            results.appendChild(document.createElement('P'));
+            results.appendChild(document.createTextNode(text));
+        }
+
         function makeRequest() {
             var request = gapi.client.urlshortener.url.insert({
-                'longUrl': window.location.href;
+                'resource': {
+                    'longUrl': window.location.href;
+                }
             });
             request.then(function (response) {
-                appendResults(response.result.longUrl);
+                appendResults(response.result.id);
             });
         }
 
@@ -42,33 +50,9 @@
             console.log(e);
         });
 
-
-
-        function getUrl() {
-            //var currUrl = window.location.href;
-            var currUrl = "http://www.google.com";
-            console.log(currUrl);
-            //for testing purposes
-            shortenUrl(currUrl);
-
-        }
-
-        //Call Google URL Shortener API to get shortened version of URL
-        function shortenUrl(url) {
-            $.post(APIUrl, JSON.stringify(longUrl: url),
-                function (data) {
-                    console.log(data);
-                    console.log("data: " + data.id);
-                    document.getElementById("short-url").value = "http://www.google.com";
-
-                }, "json");
-        }
-
-
         document.addEventListener("DOMContentLoaded", function () {
             alert("PROGRAM IS READY YO");
             console.log("PROGRAM IS READY YO");
-            getUrl();
         });
     </script>
 
