@@ -19,9 +19,8 @@
         var APIkey = "AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34";
         var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?key=" + APIkey;
 
-
-        var btn = document.getElementById("copy-link");
-        var clipboard = new Clipboard(btn);
+        var btns = document.querySelectorAll('textarea');
+        var clipboard = new Clipboard(btns);
 
         clipboard.on('success', function (e) {
             console.log(e);
@@ -30,7 +29,6 @@
         clipboard.on('error', function (e) {
             console.log(e);
         });
-
 
 
         $document.ready(function () {
@@ -86,7 +84,7 @@
             text-align: center;
         }
         
-        #copy-link {
+        #copy-url {
             margin: 10px;
             font-size: 2em;
             text-align: left;
@@ -104,9 +102,10 @@
 
 <body>
     <div>
-        <button class="fa fa-clipboard" id="copy-link" data-clipboard-action="cut" data-clipboard-target="#short-url"> COPY </button>
         <h1 id="title">Shortened URL:</h1>
-        <textarea disabled id="short-url">Shortened URL Here</textarea>
+        <input id="short-url" type="text" value="Shortened URL"></input>
+        <button class="fa fa-clipboard" id="copy-url" data-clipboard-action="cut"> COPY </button>
+
     </div>
 </body>
 
