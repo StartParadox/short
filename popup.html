@@ -58,11 +58,12 @@
             font-size: 2em;
             text-align: center;
             color: #3b3a36;
+            text-decoration: underline;
         }
         
         #copy-url {
             padding: 10px;
-            border-radius: 8px;
+            border-radius: 4px;
             font-size: 2.5em;
             border: 1px solid #b3c2bf;
             text-decoration: none;
@@ -71,8 +72,8 @@
             color: #3b3a36;
         }
         
-        button:hover {
-            color: #62bcfa;
+        #copy-url:hover {
+            background-color: #b3c2bf !important;
         }
         
         #short-url {
@@ -91,7 +92,7 @@
 
 <body>
     <div>
-        <h1 id="title">Shortened URL:</h1>
+        <h1 id="title">Shortened URL</h1>
         <h2 id="short-url">http://stuff/morestuff</h2>
         <div id="kek">
             <button class="fa fa-clipboard" id="copy-url" data-clipboard-action="cut" data-clipboard-target="#short-url"> COPY </button>
