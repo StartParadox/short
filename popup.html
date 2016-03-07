@@ -22,11 +22,6 @@
             gapi.client.load('urlshortener', 'v1').then(makeRequest);
         }
 
-        function appendResults(text) {
-            var results = document.getElementById('short-url');
-            results.appendChild(document.createElement('P'));
-            results.appendChild(document.createTextNode(text));
-        }
 
         function makeRequest() {
             var url = window.location.href;
@@ -36,7 +31,7 @@
                 }
             });
             request.then(function (response) {
-                appendResults(response.result.id);
+                document.getElementById("short-url").value = response.result.id;
                 console.log(response.result.id);
             });
         }
