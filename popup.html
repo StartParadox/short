@@ -10,13 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
     <script src="jquery-2.2.1.js"></script>
-    <script src="dist/clipboard.min.js"></script>
-
-
 
     <script>
-        var APIUrl = "https://www.googleapis.com/urlshortener/v1/url?fields=id&key=AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34";
-
         function init() {
             gapi.client.setApiKey('AIzaSyB4DkQLaq2ZOXHnpuAsuUMJbh33WbZbA34');
             gapi.client.load('urlshortener', 'v1').then(makeRequest);
@@ -31,24 +26,18 @@
                 }
             });
             request.then(function (response) {
-                document.getElementById("short-url").value = response.result.id;
+                document.getElementById("short-url").innerHTML = response.result.id;
                 console.log(response.result.id);
             });
         }
 
-        var clipboard = new Clipboard('btn');
-
-        clipboard.on('success', function (e) {
-            console.log(e);
-        });
-
-        clipboard.on('error', function (e) {
-            console.log(e);
-        });
-
         document.addEventListener("DOMContentLoaded", function () {
             alert("PROGRAM IS READY YO");
             console.log("PROGRAM IS READY YO");
+        });
+
+        document.getElementById("copy-url").addEventListener("click", function () {
+            copyToClipboard(document.getElementById("short-url"));
         });
     </script>
 
@@ -64,10 +53,6 @@
             padding: 10%;
             margin: 1%;
             border-color: #62bcfa;
-        }
-        
-        .content {
-            padding: 20%;
         }
         
         #title {
@@ -86,10 +71,6 @@
             font-size: 2em;
             color: #22264b;
         }
-        
-        textarea {
-            background-color: #62bcfa;
-        }
     </style>
 
 
@@ -98,9 +79,10 @@
 <body>
     <div>
         <h1 id="title">Shortened URL:</h1>
-        <input id="short-url" type="text" value="Shortened URL">
-        <button class="fa fa-clipboard btn" id="copy-url" data-clipboard-action="cut" data-clipboard-target="#short-url"> COPY </button>
-
+        <h2 id="short-url">http://stuff/morestuff</h2>
+        <div id="kek">
+            <button class="fa fa-clipboard" id="copy-url" data-clipboard-action="cut" data-clipboard-target="#short-url"> COPY </button>
+        </div>
     </div>
 </body>
 
