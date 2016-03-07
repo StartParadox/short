@@ -20,6 +20,7 @@
 
         function makeRequest() {
             var url = window.location.href;
+            console.log(url);
             var request = gapi.client.urlshortener.url.insert({
                 'resource': {
                     'longUrl': url
@@ -32,12 +33,11 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            alert("PROGRAM IS READY YO");
             console.log("PROGRAM IS READY YO");
         });
 
         document.getElementById("copy-url").addEventListener("click", function () {
-            copyToClipboard(document.getElementById("short-url"));
+            //COPY TO CLIPBOARD
         });
     </script>
 
@@ -68,8 +68,13 @@
         }
         
         #short-url {
+            text-align: center;
             font-size: 2em;
             color: #22264b;
+        }
+        
+        #kek {
+            text-align: center;
         }
     </style>
 
