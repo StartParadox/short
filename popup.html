@@ -35,14 +35,9 @@
         document.addEventListener("DOMContentLoaded", function () {
             console.log("PROGRAM IS READY YO");
         });
-
-        document.getElementById("copy-url").addEventListener("click", function () {
-            //COPY TO CLIPBOARD
-        });
     </script>
 
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
-
 
     <style>
         body {
@@ -99,5 +94,13 @@
         </div>
     </div>
 </body>
+
+<script>
+    var butt = document.getElementById("copy-url");
+
+    butt.addEventListener("click", function () {
+        alert("THIS DOESN'T WORK YET, PLEASE HIGHLIGHT THE URL AND USE CTRL+C TO COPY.");
+    });
+</script>
 
 </html>
