@@ -99,7 +99,25 @@
     var butt = document.getElementById("copy-url");
 
     butt.addEventListener("click", function () {
-        alert("THIS DOESN'T WORK YET, PLEASE HIGHLIGHT THE URL AND USE CTRL+C TO COPY.");
+
+        // Create a "hidden" input
+        var inp = document.createElement("input");
+
+        // Assign it the value of the specified element
+        inp.setAttribute("value", document.getElementById("short-url").innerHTML);
+
+        // Append it to the body
+        document.body.appendChild(inp);
+
+        // Highlight its content
+        inp.select();
+
+        // Copy the highlighted text
+        document.execCommand("copy");
+
+        // Remove it from the body
+        document.body.removeChild(inp);
+
     });
 </script>
 
