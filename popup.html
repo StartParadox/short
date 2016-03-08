@@ -96,25 +96,19 @@
 </body>
 
 <script>
-    var butt = document.getElementById("copy-url");
-
     butt.addEventListener("click", function () {
 
-        // Create a "hidden" input
         var inp = document.createElement("input");
+        var butt = document.getElementById("copy-url");
 
-        // Assign it the value of the specified element
+
         inp.setAttribute("value", butt.innerHTML);
-
-        // Append it to the body
         document.body.appendChild(inp);
 
-        // Highlight its content
+        // Highlight text
         inp.select();
-
-        // Copy the highlighted text
+        // Copy highlighted text
         document.execCommand("copy");
-
         // Remove it from the body
         document.body.removeChild(inp);
 
