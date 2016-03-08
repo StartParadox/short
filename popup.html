@@ -107,9 +107,11 @@
 
         // Highlight text
         inp.select();
+
         // Copy highlighted text
         document.execCommand("copy");
-        // Remove it from the body
+
+        // Remove from body
         document.body.removeChild(inp);
 
     });
