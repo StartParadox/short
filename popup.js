@@ -5,17 +5,18 @@
 
 
     function makeRequest() {
-        var url = document.URL;
-        console.log(url);
-        var request = gapi.client.urlshortener.url.insert({
-            'resource': {
-                'longUrl': url
-            }
-        });
-        request.then(function (response) {
-            document.getElementById("short-url").innerHTML = response.result.id;
-            console.log(response.result.id);
-        });
+        chrome.tabs.getSelected(null, function (tab) {
+            var url = tab.url;
+            var request = gapi.client.urlshortener.url.insert({
+                'resource': {
+                    'longUrl': url
+                }
+            });
+            request.then(function (response) {
+                document.getElementById("short-url").innerHTML = response.result.id;
+                console.log(response.result.id);
+            });
+        });;
     }
 
     document.addEventListener("DOMContentLoaded", function () {
