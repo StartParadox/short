@@ -101,8 +101,9 @@
     butt.addEventListener("click", function () {
 
         var inp = document.createElement("input");
+        var urlText = document.getElementById("short-url");
 
-        inp.setAttribute("value", butt.innerHTML);
+        inp.setAttribute("value", urlText.innerHTML);
         document.body.appendChild(inp);
 
         //Highlight text
