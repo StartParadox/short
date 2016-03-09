@@ -6,6 +6,7 @@
     function makeRequest() {
         chrome.tabs.getSelected(null, function (tab) {
             var url = tab.url;
+            console.log("Original URL: " + url);
             var request = gapi.client.urlshortener.url.insert({
                 'resource': {
                     'longUrl': url
@@ -13,7 +14,7 @@
             });
             request.then(function (response) {
                 document.getElementById("short-url").innerHTML = response.result.id;
-                console.log(response.result.id);
+                console.log("Shortened URL: " + response.result.id);
             });
         });;
     }
