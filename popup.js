@@ -5,7 +5,7 @@
 
 
     function makeRequest() {
-        var url = window.location.href;
+        var url = document.URL;
         console.log(url);
         var request = gapi.client.urlshortener.url.insert({
             'resource': {
