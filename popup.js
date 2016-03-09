@@ -3,7 +3,6 @@
         gapi.client.load('urlshortener', 'v1').then(makeRequest);
     }
 
-
     function makeRequest() {
         chrome.tabs.getSelected(null, function (tab) {
             var url = tab.url;
