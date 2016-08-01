@@ -1,5 +1,5 @@
     function init() {
-        gapi.client.setApiKey(apikey);
+        gapi.client.setApiKey('KEY GOES HERE');
         gapi.client.load('urlshortener', 'v1').then(makeRequest);
     }
 
